@@ -1,10 +1,11 @@
 class SearchesAdapter {
   constructor() {
-    this.baseUrl = 'http://localhost:3000/api/v1/searches'
+    this.baseUrl = 'http://localhost:3000/api/v1/restaurants'
   }
 
   getSearches() {
-    return fetch(this.baseUrl).then(response => response.json())
+    return fetch(this.baseUrl)
+    .then(response => response.json())
   }
 
   deleteSearch(searchId) {
