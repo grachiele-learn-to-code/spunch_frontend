@@ -1,5 +1,5 @@
 class Restaurant {
-  constructor(restaurantJSON) {
+  constructor() {
     debugger
     this.body = restaurantJSON.body
     this.id = restaurantJSON.id
