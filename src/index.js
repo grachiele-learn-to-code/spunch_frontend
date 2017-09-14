@@ -45,9 +45,9 @@ function renderRestaurant() {
 			${rest[currentIndex].address}
 			${rest[currentIndex].phone}
 			<div class="ui rating" data-rating="${rest[currentIndex].rating}" dating-max-rating="5"></div>
-			
+
 		</div>`
-	if (currentIndex== 0 && currentIndex==  0) {document.getElementById("nextBtn").style.display="block"; }
+	if (currentIndex== 0) {document.getElementById("nextBtn").style.display="block"; }
 		restResult.innerHTML = currentRest	
 	const nextButton = document.getElementById('nextBtn')
 		nextButton.addEventListener('click', function() {
