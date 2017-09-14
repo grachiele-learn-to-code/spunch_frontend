@@ -4,23 +4,48 @@
     <title>Sample JS Project frontend</title>
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS/semantic.css">
+
+   <!--  <script src="https://code.jrquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script> -->
+   <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script> -->
   </head>
   <body>
     <div class="container">
       <div id="new-search-container">
         <form id="new-search-form">
           <input type="text" name="search-body" id="new-search-body">
-          <input id="search" type="submit" value="Save search">
+          <input class="ui button blue" id="search" type="submit" value="Save search">
         </form>
       </div>
-      <div id="searches-container">
-
+     <!--  <div class="ui four column doubling stackable grid container"> -->
+     <div id="searches-container">
+        
+     </div>
+     <div type="hidden" class="ui basic blue button" id="next">Next</div>
+     <!--    <form id="new-search-form">
+          <input type="text" name="search-body" id="new-search-body">
+          <input id="search" type="submit" value="Save search">
+        </form> -->
       </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+       crossorigin="anonymous"> 
+    </script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
     <script type="text/javascript" src="src/components/restaurant.js"></script>
     <script type="text/javascript" src="src/adapters/searchesAdapter.js"></script>
     <script type="text/javascript" src="src/components/app.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
+  
   </body>
 </html>
+
+
+
+
