@@ -31,7 +31,7 @@ function restaurantHandler() {
 }
 
 function renderRestaurant() {
-	// let rest = app.restaurants
+	let rest = app.restaurants
 	// const restaurantEnd = app.restaurants.length
 	// console.log(restaurantEnd)
 	let currentRest =  
@@ -45,21 +45,21 @@ function renderRestaurant() {
 			${rest[currentIndex].address}
 			${rest[currentIndex].phone}
 			<div class="ui rating" data-rating="${rest[currentIndex].rating}" dating-max-rating="5"></div>
-			<a target= "_blank" href="${rest[currentIndex].url}">Visit Website</a>
+			
 		</div>`
-
+	if (currentIndex== 0 && currentIndex==  0) {document.getElementById("nextBtn").style.display="block"; }
 		restResult.innerHTML = currentRest	
-
+	const nextButton = document.getElementById('nextBtn')
+		nextButton.addEventListener('click', function() {
+		currentIndex++ 
+		renderRestaurant()
+	})
 
 //<div class="ui star rating" data-rating="3"></div>
 
-	}
+}
 
-const nextButton = document.getElementById('next')
-nextButton.addEventListener('click', function() {
-	currentIndex++ 
-	renderRestaurant()
-})
+
 
 // function currentRestaurant() {
 // 	currentRest = 
