@@ -23,13 +23,19 @@
      <!--  <div class="ui four column doubling stackable grid container"> -->
      <!--  controller buttons -->
      <div>
-       <input type = "button" id="nextBtn" class = "ui button blue"  style="display:none;" value = "Next">
-       <input type = "button" id="prevBtn" class = "ui button blue"  style="display:none;" value = "Previous">
+       <div class="ui basic right floated segment">
+         <input type = "button" id="next-btn" class = "ui button blue"  style="display:none;" value = "Next">
+       </div>
+       <div class="ui basic left floated segment">
+         <input type = "button" id="prev-btn" class = "ui button blue"  style="display:none;" value = "Previous">
+       </div>
      </div>
     <div id="searches-container">
 
     </div>
-
+    <div class="ui basic segment">
+      <input type = "button" id="change-location" class = "ui button blue"  style="display:none; margin: auto;" value = "Change Location">
+    </div>
      <!--    <form id="new-search-form">
           <input type="text" name="search-body" id="new-search-body">
           <input id="search" type="submit" value="Save search">
