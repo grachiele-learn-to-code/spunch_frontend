@@ -25,7 +25,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		app.filterRestaurantsByZip(searchTerm.value)
 		// saveSearch.parentNode.outerHTML = ""
-		saveSearch.parentNode.style.display = "none"
+		if (app.filtered.length != 0) {
+			saveSearch.parentNode.style.display = "none"
+		} else {
+			alert("Hmmmmm that's not right.")
+		}
 		console.log(app.filtered)
 		renderRestaurant()
 	}
