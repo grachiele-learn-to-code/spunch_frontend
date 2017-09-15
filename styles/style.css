@@ -46,3 +46,8 @@ ul {
 .delete-search-link {
   color:red;
 }
+
+img {
+  height: 300px;
+  width: 100%;
+}

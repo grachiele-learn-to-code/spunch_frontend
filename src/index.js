@@ -5,14 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	const searchTerm = document.getElementById('new-search-body')
 	const restResult = document.getElementById('searches-container')
 	const newSearchContainer = document.getElementById('new-search-container')
-	const nextButton = document.getElementById('nextBtn')
-	const prevButton = document.getElementById('prevBtn')
+	const nextButton = document.getElementById('next-btn')
+	const prevButton = document.getElementById('prev-btn')
+	const changeLocation = document.getElementById('change-location')
 	let currentIndex = 0
 
 	adapter.getSearches()
 	.then((response) => {
-		app.restaurants = []
-		// console.log(response)
 		response.forEach(function(restaurant) {
 				app.restaurants.push(restaurant)
 		})
@@ -25,26 +24,27 @@ document.addEventListener("DOMContentLoaded", function() {
 		event.preventDefault()
 
 		app.filterRestaurantsByZip(searchTerm.value)
-		saveSearch.parentNode.outerHTML = ""
+		// saveSearch.parentNode.outerHTML = ""
+		saveSearch.parentNode.style.display = "none"
+		console.log(app.filtered)
 		renderRestaurant()
-
-
-		// console.log(app.restaurants)
 	}
 
 	function renderSearchBarRemoveRestaurant() {
-		newSearchContainer.innerHTML = `<form id="new-search-form">
-			<input type="text" name="search-body" id="new-search-body">
-			<input class="ui button blue" id="search" type="submit" value="Save search">
-		</form>`
+		// newSearchContainer.innerHTML = `<form id="new-search-form">
+		// 	<input type="text" name="search-body" id="new-search-body">
+		// 	<input class="ui button blue" id="search" type="submit" value="Save search">
+		// </form>`
+		saveSearch.parentNode.style.display = "block"
 		restResult.innerHTML = ""
 		nextButton.style.display = "none"
 		prevButton.style.display = "none"
+		changeLocation.style.display = "none"
 		currentIndex = 0
 	}
 
 	function renderRestaurant() {
-		let rest = app.restaurants
+		let rest = app.filtered
 		let currentRest =
 			`
 			<div class="ui centered card">
@@ -54,15 +54,16 @@ document.addEventListener("DOMContentLoaded", function() {
 					</a>
 				</div>
 				<div class="content">
-					${rest[currentIndex].name}
-					${rest[currentIndex].address}
-					${rest[currentIndex].phone}
+					<p>${rest[currentIndex].name}</p><br>
+					${rest[currentIndex].address}<br>
+					${rest[currentIndex].phone}<br>
 				</div>
 			</div>`
+		changeLocation.style.display = "block"
 		if (currentIndex == 0) {
-			nextButton.style.display="block";
+			nextButton.style.display = "block"
 		} else if (currentIndex > 0 && currentIndex < rest.length) {
-			prevButton.style.display="block"
+			prevButton.style.display = "block"
 		}
 		restResult.innerHTML = currentRest
 
@@ -70,15 +71,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	}
 
-	console.log(currentIndex, "outside of click")
-
 	nextButton.addEventListener('click', function() {
 		currentIndex += 1
-		console.log(currentIndex, "after click")
-		console.log(app.restaurants.length)
-		if (currentIndex < app.restaurants.length) {
+		if (currentIndex < app.filtered.length) {
 			renderRestaurant()
-		} else if (currentIndex == app.restaurants.length) {
+		} else if (currentIndex == app.filtered.length) {
 			renderSearchBarRemoveRestaurant()
 			alert("There are no more restaurants. Try another!")
 		}
@@ -90,15 +87,19 @@ document.addEventListener("DOMContentLoaded", function() {
 		} else if (currentIndex != 0) {
 			currentIndex -= 1
 		}
-		console.log(currentIndex, "after click")
-		console.log(app.restaurants.length)
-		if (currentIndex < app.restaurants.length) {
+		if (currentIndex < app.filtered.length) {
 			renderRestaurant()
-		} else if (currentIndex == app.restaurants.length) {
+		} else if (currentIndex == app.filtered.length) {
 			renderSearchBarRemoveRestaurant()
 			alert("There are no more restaurants. Try another!")
 		}
 	})
+
+	changeLocation.addEventListener('click', function(){
+		renderSearchBarRemoveRestaurant()
+	})
+
+
 
 
 // function currentRestaurant() {
